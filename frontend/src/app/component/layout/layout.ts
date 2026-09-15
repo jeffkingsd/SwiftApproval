@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { CardTable } from '../card-table/card-table';
 
 
 @Component({
-  imports: [],
+  imports: [CardTable],
   selector: 'app-layout',
   styleUrl: './layout.css',
   templateUrl: './layout.html',
