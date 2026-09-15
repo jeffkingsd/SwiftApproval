@@ -1,14 +1,14 @@
-<div id="card-table">
-  <table hlmTable>
+<div id="card-table" hlmCard class="w-[640px] p-4 border-none bg-white">
+  <table  hlmTable>
     <caption hlmTableCaption>
-      A list of your recent invoices.
+      A list of <span class="font-bold">{{ customer }}</span> recent invoices.
     </caption>
     <thead hlmTableHeader>
       <tr hlmTableRow>
-        <th hlmTableHead class="w-[100px]">Active sales</th>
+        <th hlmTableHead class="">Active sales</th>
         <th hlmTableHead>payment</th>
+        <th hlmTableHead class="text-right">category</th>
         <th hlmTableHead>cost</th>
-        <th hlmTableHead class="text-right">Amount</th>
       </tr>
     </thead>
     <tbody hlmTableBody>
@@ -16,7 +16,7 @@
           <tr hlmTableRow>
             <td hlmTableCell>{{ item.name }}</td>
             <td hlmTableCell>{{ item.description }}</td>
-            <td hlmTableCell>${{ item.price.toFixed(2) }}</td>
+            <td htmlTableCell class="text-right">{{ item.category }}</td>
             <td hlmTableCell class="text-right">${{ item.price * item.quantity }}</td>
           </tr>
         }

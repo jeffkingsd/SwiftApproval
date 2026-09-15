@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { CardTable } from '../card-table/card-table';
+import { Header } from '../header/header';
 
 
 @Component({
-  imports: [CardTable],
+  imports: [CardTable, Header],
   selector: 'app-layout',
   styleUrl: './layout.css',
   templateUrl: './layout.html',

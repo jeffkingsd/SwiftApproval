@@ -7,6 +7,9 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #f7f7f7;
+  background-image: repeating-linear-gradient(45deg, rgba(165, 137, 249, 0.272) 0, rgba(167, 139, 250, 0.18) 0.5px, transparent 1px, transparent 16px), repeating-linear-gradient(-45deg, rgba(167, 139, 250, 0.18) 0, rgba(167, 139,250, 0.18) 0.75px, transparent 0.5px, transparent 16px);
+  background-size: 22px 22px;
 }
 
 app-root {
