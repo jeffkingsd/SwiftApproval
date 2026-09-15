@@ -7,3 +7,8 @@ export type SaleData = {
     price: number;
     quantity: number;
 }
+
+export type SaleCustomerdata = {
+    customerName: string;
+    sales: SaleData[];
+}

@@ -1,16 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SaleData } from '@entities/SaleData';
-import { computerSale } from '@mocks/SaleDataMock';
 import { HlmCardImports } from '@spartan-ng/helm/card';
+import { CdkConnectedOverlay } from '@angular/cdk/overlay';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
-  imports: [HlmCardImports],
+  imports: [HlmCardImports, CurrencyPipe],
   selector: 'app-card-table',
   styleUrl: './card-table.css',
   templateUrl: './card-table.html',
 })
 export class CardTable {
-  customer: string = "Joe Smith";
+  @Input() customer: string = '';
+  @Input() saleData: SaleData[] = [];
 
-  saleData: SaleData[] = computerSale;
+  ngOnInit() {
+    console.log('Customer:', this.customer);
+    console.log('Sale Data:', this.saleData);
+  }
+
+  get saleTotal(): number {
+    return this.saleData.reduce((total, sale) => total + sale.price * sale.quantity, 0);
+  }
+
 }

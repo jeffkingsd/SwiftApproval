@@ -1,6 +1,9 @@
 <div id="layout">
     <app-header></app-header>
-    <section id="card-section" title="Customer Sales" class="p-8">
-        <app-card-table></app-card-table>
+    <section id="card-section" title="Customer Sales" class="p-8 grid grid-cols-3">
+        @for (sale of customerSales; track sale.customerName) {
+            <app-card-table [customer]="sale.customerName" [saleData]="sale.sales"></app-card-table>
+        }
+
     </section>
 </div>

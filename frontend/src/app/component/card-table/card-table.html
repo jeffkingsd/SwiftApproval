@@ -1,4 +1,4 @@
-<div id="card-table" hlmCard class="w-[640px] p-4 border-none bg-white">
+<div id="card-table" hlmCard class="m-8 h-40 overflow-scroll rounded-sm pt-4 pb-0 border-none bg-white">
   <table  hlmTable>
     <caption hlmTableCaption>
       A list of <span class="font-bold">{{ customer }}</span> recent invoices.
@@ -6,25 +6,29 @@
     <thead hlmTableHeader>
       <tr hlmTableRow>
         <th hlmTableHead class="">Active sales</th>
+        <th hlmTableHead class="">Quantity</th>
         <th hlmTableHead>payment</th>
         <th hlmTableHead class="text-right">category</th>
         <th hlmTableHead>cost</th>
       </tr>
     </thead>
-    <tbody hlmTableBody>
+    <tbody class="mx-2" hlmTableBody>
         @for (item of saleData; track item.productId) {
           <tr hlmTableRow>
-            <td hlmTableCell>{{ item.name }}</td>
+            <td hlmTableCell class="w-40">{{ item.name }}</td>
+            <td hlmTableCell class="text-right">{{ item.quantity }}</td>
             <td hlmTableCell>{{ item.description }}</td>
-            <td htmlTableCell class="text-right">{{ item.category }}</td>
-            <td hlmTableCell class="text-right">${{ item.price * item.quantity }}</td>
+            <td hlmTableCell class="text-right">{{ item.category }}</td>
+            <td hlmTableCell class="text-right">{{ item.price * item.quantity | currency:'USD':true  }}</td>
           </tr>
         }
     </tbody>
-    <tfoot hlmTableFooter>
-      <tr hlmTableRow>
-        <td hlmTableCell [attr.colSpan]="3">Total</td>
-        <td hlmTableCell class="text-right">$2,500.00</td>
+    <tfoot  class="sticky bottom-0 bg-white" hlmTableFooter>
+      <tr class="h-12" hlmTableRow>
+        <td class="border-t-2 border-gray-500" hlmTableCell [attr.colSpan]="4">Total</td>
+        <td class="border-t-2 border-gray-500" hlmTableCell class="text-right">
+            {{ saleTotal | currency:'USD':'$' }}
+        </td>
       </tr>
     </tfoot>
   </table>
